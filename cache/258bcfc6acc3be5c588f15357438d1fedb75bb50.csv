@@ -1,0 +1,56 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7587099359,completed,failure,258bcfc6acc3be5c588f15357438d1fedb75bb50,"To/api errors (#7914)
+
+* Add api.Errors interface
+
+* Add usage example",ocket8888,2024-01-19T17:24:27Z,436,"['traffic_ops/traffic_ops_golang/api/errors.go', 'traffic_ops/traffic_ops_golang/api/errors_test.go']",7914,To/api errors,ocket8888,2024-01-16T18:27:53Z,"['Traffic Ops', 'low impact', 'tech debt']","## What does this PR (Pull Request) do?
+This PR obsoletes #5162. I've made it smaller by not actually doing anything with the new structure yet (the plan is to introduce it to `api.Wrap`-ed handling and then things currently using the CRUDer will adopt it as they are rewritten), which should also reduce/eliminate conflicts in the future. 
+
+This adds a new interface to Traffic Ops's `api` package. The interface encapsulates a user-facing error, a system-only error, and an HTTP response code, like so:
+
+```go
+type Errors interface {
+	Code() int
+	SystemError() error
+	UserError() error
+
+        // Some other methods omitted
+}
+```
+
+This is meant to replace the `(error, error, int)` and `(int, error, error)` call signatures common throughout TO code. As well as making the TO codebase more compliant with the convention that ""error values should be last function return signatures"" - which is followed throughout the Go standard library, but is not actually enforced within our project - this eliminates any confusion about which error in the return signature is meant for clients and which is only meant for logs. It also makes it harder to make mistakes regarding those associations by making the assignment and use of such errors more explicit.
+
+If this were adopted, it would simplify things greatly. For comparison:
+```go
+// The old way
+userErr, sysErr, errCode := someFunction(inf)
+if userErr != nil || sysErr != nil {
+	api.HandleErr(w, r, inf.Tx.Tx, errCode, userErr, sysErr)
+	return
+}
+
+// The new way (assuming in an api.Wrap-ed handler)
+errs := someFunction(inf)
+if errs != nil {
+	return errs
+}
+```
+
+### Changes from #5162 
+Taking feedback into account, the new Errors type PR incorporates the following changes from the most recent draft of that PR
+- `api.Errors` implements `error` and is an interface - and therefore ""`nil`-able"". This means that instead of checking e.g. `errs.Occurred()`, you can check if the returned value is `nil`.
+- Rather than being directly constructed in a very verbose way that would encourage early initialization and setting fields later, helper functions have been added that should allow for simpler error construction in a single line (e.g. `return api.NewSystemErrorf(""scanning CDNs: %w"", err)`.
+- Adds two files instead of changing a total of 153.
+- Has 100% test coverage for the added lines.
+
+## Which Traffic Control components are affected by this PR?
+- Traffic Ops
+
+## What is the best way to verify this PR?
+Ensure the provided tests pass.
+
+## The following criteria are ALL met by this PR
+- [x] This PR includes tests
+- [x] This PR includes documentation in the form of GoDocs - nothing external has changed, so no other documentation is necessary
+- [x] An update to CHANGELOG.md is not necessary
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY**",[]

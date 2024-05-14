@@ -1,0 +1,14 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,5593700799,completed,failure,0a764b22360deff36f51a4597d2f060d8308460b,"Bump word-wrap from 1.2.3 to 1.2.4 in /experimental/traffic-portal
+
+Bumps [word-wrap](https://github.com/jonschlinkert/word-wrap) from 1.2.3 to 1.2.4.
+- [Release notes](https://github.com/jonschlinkert/word-wrap/releases)
+- [Commits](https://github.com/jonschlinkert/word-wrap/compare/1.2.3...1.2.4)
+
+---
+updated-dependencies:
+- dependency-name: word-wrap
+  dependency-type: indirect
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>",dependabot[bot],2023-07-19T00:20:50Z,12,['experimental/traffic-portal/package-lock.json'],None,None,None,None,None,None,[]

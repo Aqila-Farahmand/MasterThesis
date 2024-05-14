@@ -1,0 +1,14 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,5720312390,completed,failure,cfd6be34291a391a2aaf6da9c1824607240547ae,"Bump jszip from 3.6.0 to 3.10.1 in /traffic_portal/test/integration
+
+Bumps [jszip](https://github.com/Stuk/jszip) from 3.6.0 to 3.10.1.
+- [Changelog](https://github.com/Stuk/jszip/blob/main/CHANGES.md)
+- [Commits](https://github.com/Stuk/jszip/compare/v3.6.0...v3.10.1)
+
+---
+updated-dependencies:
+- dependency-name: jszip
+  dependency-type: indirect
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>",dependabot[bot],2023-07-31T22:33:29Z,864,['traffic_portal/test/integration/pnpm-lock.yaml'],None,None,None,None,None,None,[]

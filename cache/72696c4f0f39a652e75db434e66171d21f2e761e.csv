@@ -1,0 +1,15 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,8380899952,completed,failure,72696c4f0f39a652e75db434e66171d21f2e761e,"Bump webpack-dev-middleware in /experimental/traffic-portal
+
+Bumps [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) from 5.3.3 to 5.3.4.
+- [Release notes](https://github.com/webpack/webpack-dev-middleware/releases)
+- [Changelog](https://github.com/webpack/webpack-dev-middleware/blob/v5.3.4/CHANGELOG.md)
+- [Commits](https://github.com/webpack/webpack-dev-middleware/compare/v5.3.3...v5.3.4)
+
+---
+updated-dependencies:
+- dependency-name: webpack-dev-middleware
+  dependency-type: indirect
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>",dependabot[bot],2024-03-21T19:48:29Z,12,['experimental/traffic-portal/package-lock.json'],None,None,None,None,None,None,[]

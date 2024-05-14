@@ -1,0 +1,4 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,6775110352,completed,failure,2eb00e0cfd8e83ee77ea6016ceaaa272538d55a3,"Revert ""RELEASE: Syncing VERSION file""
+
+This reverts commit eec1b0017cfd82a65d797a6af261b23005cfe7ff.",Rima Shah,2023-11-06T18:39:09Z,2,['VERSION'],None,None,None,None,None,None,[]

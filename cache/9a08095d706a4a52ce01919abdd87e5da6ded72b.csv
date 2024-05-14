@@ -1,0 +1,17 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7495410230,completed,failure,9a08095d706a4a52ce01919abdd87e5da6ded72b,Remove now-unnecessary python-abi dependency,ocket8888,2024-01-11T22:42:41Z,2,['traffic_ops/build/traffic_ops.spec'],7841,Remove Perl postinstall script,ocket8888,2023-10-18T21:45:52Z,"['Traffic Ops', 'documentation', 'tech debt', 'medium impact', 'install', 'python']","This PR removes the Perl implementation of the Postinstall script and updates documentation accordingly. It also removes support for Python 2, including a code-level compatibility; this won't just not try to run with Python 2 by default, it is now syntactically incompatible with that dead language. Also, as Python3.6 is already end-of-life, the requirement is now Python 3.8+ (EOL November 2024, I believe).
+
+<hr/>
+
+## Which Traffic Control components are affected by this PR?
+- Documentation
+- Postinstall
+
+## What is the best way to verify this PR?
+Make sure the postinstall tests pass.
+
+## PR submission checklist
+- [x] This PR has tests
+- [x] This PR has documentation
+- [x] This PR has a CHANGELOG.md entry
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY**",[]

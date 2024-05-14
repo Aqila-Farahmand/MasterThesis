@@ -1,0 +1,15 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,5063409566,completed,failure,0eff6398137c3aa95d540b4d687cfbf68c5896be,"Bump socket.io-parser from 4.2.1 to 4.2.3 in /traffic_portal
+
+Bumps [socket.io-parser](https://github.com/socketio/socket.io-parser) from 4.2.1 to 4.2.3.
+- [Release notes](https://github.com/socketio/socket.io-parser/releases)
+- [Changelog](https://github.com/socketio/socket.io-parser/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/socketio/socket.io-parser/compare/4.2.1...4.2.3)
+
+---
+updated-dependencies:
+- dependency-name: socket.io-parser
+  dependency-type: indirect
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>",dependabot[bot],2023-05-24T00:39:53Z,106,['traffic_portal/package-lock.json'],None,None,None,None,None,None,[]

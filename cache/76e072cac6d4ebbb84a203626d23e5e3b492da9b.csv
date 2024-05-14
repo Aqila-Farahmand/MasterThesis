@@ -1,0 +1,15 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,8023166629,completed,failure,76e072cac6d4ebbb84a203626d23e5e3b492da9b,"Bump axios from 0.27.2 to 0.28.0 in /experimental/traffic-portal
+
+Bumps [axios](https://github.com/axios/axios) from 0.27.2 to 0.28.0.
+- [Release notes](https://github.com/axios/axios/releases)
+- [Changelog](https://github.com/axios/axios/blob/v0.28.0/CHANGELOG.md)
+- [Commits](https://github.com/axios/axios/compare/v0.27.2...v0.28.0)
+
+---
+updated-dependencies:
+- dependency-name: axios
+  dependency-type: direct:development
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>",dependabot[bot],2024-02-23T18:02:01Z,15,"['experimental/traffic-portal/package-lock.json', 'experimental/traffic-portal/package.json']",None,None,None,None,None,None,[]

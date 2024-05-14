@@ -1,0 +1,40 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7092998810,completed,failure,b55740c69f23bad2108fb2ed5ce7a75b96c02c9a,"ATC Collaborators for December 2023 (#7875)
+
+Co-authored-by: asf-ci-trafficcontrol <asf-ci-trafficcontrol@users.noreply.github.com>",asf-ci-trafficcontrol,2023-12-04T21:51:37Z,5,['.asf.yaml'],7875,ATC Collaborators for December 2023,asf-ci-trafficcontrol,2023-12-01T14:03:28Z,"['process', 'collaborators']","This PR uses [`.asf.yaml`](https://s.apache.org/asfyamltriage) to assign the GitHub [Triage role](https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role) to non-committer contributors who fixed 2 or more Issues in the past 31 days:
+
+*  @ntheanh201 fixed 4 Issues:
+    -  #7852, fixed by #7853
+    -  #6983, fixed by #7846
+    -  #6501, fixed by #7849
+    -  #6250, fixed by #7847
+
+Congrats!  For the month of December, @ntheanh201 will have the ability to
+* Apply labels to Issues and Pull Requests
+* Assign a user to an Issue (note that non-committers can be assigned to an Issue after commenting on it)
+* Add a user as a Reviewer of a Pull Request, which will send a request to them to review it
+* Mark Issues and Pull Requests as a duplicate
+<hr/>
+These privileges will expire at the end of December. If you want to be an Apache Traffic Control collaborator next month:
+
+1. Read our [contribution guidelines](https://github.com/apache/trafficcontrol/blob/master/CONTRIBUTING.md)
+2. Find an Issue to work on (recommended issues have the [good first issue](https://github.com/apache/trafficcontrol/issues?q=is:issue+is:open+label:&quot;good+first+issue&quot;+no:assignee) label) and ask to be assigned
+3. Get coding! For questions on how to contribute, you can reach the ATC community on
+    - The `#traffic-control` channel of the ASF Slack ([invite link](https://s.apache.org/tc-slack-request))
+    - The ATC Dev [mailing list](https://trafficcontrol.apache.org/mailing_lists) ([archives](https://lists.apache.org/list?dev@trafficcontrol.apache.org:lte=5y:))
+<hr/>
+
+## Which Traffic Control components are affected by this PR?
+- Other: [`.asf.yaml`](https://github.com/apache/trafficcontrol/blob/master/.asf.yaml)
+
+## What is the best way to verify this PR?
+Verify that the fixed Issues listed above are linked to [PRs from the past 31 days](https://github.com/apache/trafficcontrol/pulls?q=is:pr+linked:issue+merged:2023-10-31..2023-12-01)
+
+## PR submission checklist
+- [ ] This PR has tests
+- [ ] This PR has documentation
+- [ ] This PR has a CHANGELOG.md entry
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY** (see [the Apache Software Foundation's security guidelines](https://apache.org/security) for details)
+
+
+",[]

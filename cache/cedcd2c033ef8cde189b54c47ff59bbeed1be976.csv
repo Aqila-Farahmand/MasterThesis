@@ -1,0 +1,16 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,6395744926,completed,failure,cedcd2c033ef8cde189b54c47ff59bbeed1be976,"TO API v5 routes should not use priv levels anymore (#7819)
+
+* TO API v5 routes should not use priv levels anymore
+
+* add changelog
+
+* fix tests, cleanup
+
+* remove commented out code
+
+* code review
+
+* rename perm constants
+
+(cherry picked from commit 5081509d5f0b42f5c50621deb07521c7db6d863a)",Srijeet Chatterjee,2023-09-28T18:39:05Z,104,"['CHANGELOG.md', 'lib/go-tc/constants.go', 'traffic_ops/traffic_ops_golang/cdn_lock/cdn_lock.go', 'traffic_ops/traffic_ops_golang/cdni/shared.go', 'traffic_ops/traffic_ops_golang/deliveryservice/servers/servers.go', 'traffic_ops/traffic_ops_golang/deliveryservice/servers/servers_test.go', 'traffic_ops/traffic_ops_golang/profile/copy_test.go', 'traffic_ops/traffic_ops_golang/profile/profiles.go', 'traffic_ops/traffic_ops_golang/server/servers.go', 'traffic_ops/traffic_ops_golang/systeminfo/system_info.go', 'traffic_ops/traffic_ops_golang/systeminfo/system_info_test.go']",None,None,None,None,None,None,[]

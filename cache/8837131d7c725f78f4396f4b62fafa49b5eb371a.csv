@@ -1,0 +1,22 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7606632758,completed,failure,8837131d7c725f78f4396f4b62fafa49b5eb371a,"Bump axios and pm2 in /traffic_portal/app/src
+
+Removes [axios](https://github.com/axios/axios). It's no longer used after updating ancestor dependency [pm2](https://github.com/Unitech/pm2). These dependencies need to be updated together.
+
+
+Removes `axios`
+
+Updates `pm2` from 5.2.2 to 5.3.1
+- [Release notes](https://github.com/Unitech/pm2/releases)
+- [Changelog](https://github.com/Unitech/pm2/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/Unitech/pm2/compare/5.2.2...v5.3.1)
+
+---
+updated-dependencies:
+- dependency-name: axios
+  dependency-type: indirect
+- dependency-name: pm2
+  dependency-type: direct:production
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>",dependabot[bot],2024-01-22T04:53:06Z,104,"['traffic_portal/app/src/package-lock.json', 'traffic_portal/app/src/package.json']",None,None,None,None,None,None,[]

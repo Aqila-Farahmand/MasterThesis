@@ -1,0 +1,50 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7108973913,completed,failure,ef3195dec6a92f4759be78f3421f2e26e0c15b0d,"small fix: title cache groups table (#7874)
+
+fix title cache groups table",The Anh Nguyen,2023-12-06T01:34:34Z,2,['traffic_portal/app/src/common/modules/table/cacheGroups/table.cacheGroups.tpl.html'],7874,small fix: title cache groups table,ntheanh201,2023-12-01T07:51:47Z,"['bug', 'Traffic Portal', 'low impact']","Only fix missing the title of Cache Groups table
+
+
+<!-- **^ Add meaningful description above** --><hr/>
+
+## Which Traffic Control components are affected by this PR?
+<!-- Please delete all components from this list that are NOT affected by this PR.
+Feel free to add the name of a tool or script that is affected but not on the list.
+-->
+- Traffic Portal
+
+## What is the best way to verify this PR?
+- Check the title of CacheGroups table
+
+## If this is a bugfix, which Traffic Control versions contained the bug?
+<!-- Delete this section if the PR is not a bugfix, or if the bug is only in the master branch.
+Examples:
+- 5.1.2
+- 5.1.3 (RC1)
+ -->
+
+
+## PR submission checklist
+- [x] This PR has tests <!-- If not, please delete this text and explain why this PR does not need tests. -->
+- [x] This PR has documentation <!-- If not, please delete this text and explain why this PR does not need documentation. -->
+- [x] This PR has a CHANGELOG.md entry <!-- A fix for a bug from an ATC release, an improvement, or a new feature should have a changelog entry. -->
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY** (see [the Apache Software Foundation's security guidelines](https://apache.org/security) for details)
+
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+""License""); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+""AS IS"" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+","[{'comment_body': ""None of the failures I'm seeing in all  of these runs appear to be at all related to the table that has been changed. They also don't seem to be consistent in how they're failing at all. Those tests are known to fail for no reason. All this to say: I'm merging this despite the failures""}]"

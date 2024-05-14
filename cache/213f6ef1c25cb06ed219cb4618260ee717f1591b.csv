@@ -1,0 +1,2 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,6612229983,completed,failure,213f6ef1c25cb06ed219cb4618260ee717f1591b,fix data search value,The Anh Nguyen,2023-10-23T10:52:33Z,2,['traffic_portal/app/src/common/modules/table/parameters/table.parameters.tpl.html'],None,None,None,None,None,None,[]

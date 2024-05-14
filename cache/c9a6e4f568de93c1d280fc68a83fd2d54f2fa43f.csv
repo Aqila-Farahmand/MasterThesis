@@ -1,0 +1,10 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7477382053,completed,failure,c9a6e4f568de93c1d280fc68a83fd2d54f2fa43f,"Use number of commits since last release in build number
+
+Previously, the number of commits ever was used, to ensure that a build
+from a later child commit will always be considered a higher version
+number.
+
+Because the version number increases each time the release version
+increases, counting only the commits since the last release tag is
+sufficient.",Zach Hoffman,2024-01-09T20:46:05Z,22,"['CHANGELOG.md', 'build/functions.sh', 'docs/source/api/v3/about.rst', 'docs/source/api/v4/about.rst', 'docs/source/api/v5/about.rst', 'experimental/traffic-portal/server.config.ts', 'infrastructure/cdn-in-a-box/Makefile']",None,None,None,None,None,None,[]

@@ -1,0 +1,18 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7548549074,completed,failure,4fd750711d25caee129bdc35a41d480d109fe544,Add page title setting when header title is updated,ocket8888,2024-01-16T22:53:14Z,37,"['experimental/traffic-portal/src/app/shared/navigation/navigation.service.spec.ts', 'experimental/traffic-portal/src/app/shared/navigation/navigation.service.ts']",7915,TPv2 Add page title setting when header title is updated,ocket8888,2024-01-16T22:57:54Z,"['new feature', 'low impact', 'experimental', 'Traffic Portal v2']","Closes #2742 
+
+This PR updates navigation in the experimental TPv2 to also update the page title in the browser whenever the page's header title is set.
+
+<hr/>
+
+## Which Traffic Control components are affected by this PR?
+- Traffic Portal (experimental v2)
+
+## What is the best way to verify this PR?
+Make sure the tests pass. To verify manually, go to a bunch of pages and ensure the web page's title always matches the page header's title.
+
+## PR submission checklist
+- [x] This PR has tests
+- [x] This PR doesn't need documentation
+- [x] This PR doesn't need a CHANGELOG.md entry
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY**",[]

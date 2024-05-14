@@ -1,0 +1,36 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7835769278,completed,failure,b1d83a5d3c985af61e4918793799e3212e0ec880,"TPv2 lint fixes (#7937)
+
+* Update TPv2 to fix new linting errors (now that linter works)
+
+I also made miscellaneous spelling/grammar fixes in JSDoc comment blocks.
+
+* Remove the CoordinateService API Service
+
+Its only method is already present on the CacheGroupService
+
+* fix an API testing service method call signature mismatch with concrete
+
+* Fix typo
+
+* Add accessible keypress handlers to treeselect component
+
+* npm audit fix",ocket8888,2024-02-08T20:47:16Z,1049,"['experimental/traffic-portal/package-lock.json', 'experimental/traffic-portal/src/app/api/cache-group.service.ts', 'experimental/traffic-portal/src/app/api/coordinate.service.spec.ts', 'experimental/traffic-portal/src/app/api/coordinate.service.ts', 'experimental/traffic-portal/src/app/api/index.ts', 'experimental/traffic-portal/src/app/api/origin.service.ts', 'experimental/traffic-portal/src/app/api/profile.service.ts', 'experimental/traffic-portal/src/app/api/server.service.ts', 'experimental/traffic-portal/src/app/api/testing/cache-group.service.ts', 'experimental/traffic-portal/src/app/api/testing/cdn.service.ts', 'experimental/traffic-portal/src/app/api/testing/coordinate.service.ts', 'experimental/traffic-portal/src/app/api/testing/delivery-service.service.ts', 'experimental/traffic-portal/src/app/api/testing/index.ts', 'experimental/traffic-portal/src/app/api/testing/origin.service.ts', 'experimental/traffic-portal/src/app/api/testing/physical-location.service.ts', 'experimental/traffic-portal/src/app/api/testing/profile.service.ts', 'experimental/traffic-portal/src/app/api/testing/server.service.ts', 'experimental/traffic-portal/src/app/api/testing/type.service.ts', 'experimental/traffic-portal/src/app/api/testing/user.service.ts', 'experimental/traffic-portal/src/app/api/type.service.ts', 'experimental/traffic-portal/src/app/core/deliveryservice/ds-card/ds-card.component.html', 'experimental/traffic-portal/src/app/core/origins/detail/origin-detail.component.ts', 'experimental/traffic-portal/src/app/shared/tree-select/tree-select.component.html']",7937,TPv2 lint fixes,ocket8888,2024-02-07T18:14:11Z,"['low impact', 'tech debt', 'experimental', 'Traffic Portal v2']","This PR fixes new linting errors that have arisen from #7933 .
+
+I also fixed one typo in markup, fixed a couple of call signature mismatches between the concrete and testing Delivery Service API services, and did some spelling/grammar changes in JSDoc comment blocks of some API service methods.
+
+Also, rather than fix the CoordinateService, I removed it, since it only had one method, which already existed on the CacheGroupService.
+
+<hr/>
+
+## Which Traffic Control components are affected by this PR?
+- Traffic Portal (experimental v2)
+
+## What is the best way to verify this PR?
+Make sure the linter now passes, and that all existing tests still pass after the removal of the CoordinateService.
+
+## PR submission checklist
+- [x] This PR has tests
+- [x] This PR doesn't need documentation
+- [x] This PR doesn't need a CHANGELOG.md entry
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY**",[]

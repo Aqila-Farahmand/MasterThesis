@@ -1,0 +1,4 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7630464312,completed,failure,372cb6b0501985cd20bbd166e756ce125a33eee8,"Get build number from BUILD_NUMBER file if not in a repo
+
+Also break the $(shell) function into multiple lines for readability",Zach Hoffman,2024-01-23T15:47:34Z,16,['infrastructure/cdn-in-a-box/Makefile'],None,None,None,None,None,None,[]

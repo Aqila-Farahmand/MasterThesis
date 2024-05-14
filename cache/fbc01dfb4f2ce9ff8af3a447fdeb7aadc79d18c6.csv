@@ -1,0 +1,79 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7890225724,completed,failure,fbc01dfb4f2ce9ff8af3a447fdeb7aadc79d18c6,Use repo version of Go fo CodeQL,Zach Hoffman,2024-02-13T17:13:14Z,10,['.github/workflows/codeql.go.yml'],7940,Update Go version to 1.22.0,zrhoffman,2024-02-12T23:25:42Z,['go version'],"## What does this PR (Pull Request) do?
+
+This PR makes the Go components of Traffic Control build using Go version 1.22.0 and updates the `golang.org/x/` dependencies.
+
+See the Go 1.22.0 [release notes](https://go.dev/doc/go1.22):
+
+<!--
+The release notes are licensed with the Go license.
+
+Copyright (c) 2009 The Go Authors. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+   * Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the
+distribution.
+   * Neither the name of Google Inc. nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+""AS IS"" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+> <p> The latest Go release, version 1.22, arrives six months after <a href=""https://go.dev/doc/go1.21"">Go 1.21</a>. Most of its changes are in the implementation of the toolchain, runtime, and libraries. As always, the release maintains the Go 1 <a href=""https://go.dev/doc/go1compat"">promise of compatibility</a>. We expect almost all Go programs to continue to compile and run as before. </p>
+
+## Which Traffic Control components are affected by this PR?
+- Traffic Control Cache Config (`t3c`, formerly ORT)
+- Traffic Control Health Client (tc-health-client)
+- Traffic Control Client <!-- Please specify which (Python, Go, or Java) -->
+- Traffic Monitor
+- Traffic Ops
+- Traffic Stats
+- Grove
+- CDN in a Box - Enroller
+- CI tests for Go components
+- Build system - Go version in builder images
+
+## What is the best way to verify this PR?
+Verify that tests pass
+
+## The following criteria are ALL met by this PR
+- [x] Existing tests are sufficient, no additional tests necessary
+- [x] The documentation only mentions the major Go version, no documentation updates necessary.
+- [x] This PR includes a changelog entry
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY** (see [the Apache Software Foundation's security guidelines](https://www.apache.org/security/) for details)
+
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+""License""); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+""AS IS"" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->",[]

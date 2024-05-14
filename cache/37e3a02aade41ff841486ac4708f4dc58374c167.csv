@@ -1,0 +1,14 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7472315855,completed,failure,37e3a02aade41ff841486ac4708f4dc58374c167,"Bump follow-redirects from 1.15.2 to 1.15.4 in /traffic_portal
+
+Bumps [follow-redirects](https://github.com/follow-redirects/follow-redirects) from 1.15.2 to 1.15.4.
+- [Release notes](https://github.com/follow-redirects/follow-redirects/releases)
+- [Commits](https://github.com/follow-redirects/follow-redirects/compare/v1.15.2...v1.15.4)
+
+---
+updated-dependencies:
+- dependency-name: follow-redirects
+  dependency-type: indirect
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>",dependabot[bot],2024-01-10T08:40:32Z,52,['traffic_portal/package-lock.json'],None,None,None,None,None,None,[]

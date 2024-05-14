@@ -1,0 +1,41 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,8052746586,completed,failure,a42317083687a1e8bac4cdb20bc7d4f3c500651a,"Update Chromedriver Versions (#7950)
+
+Update chromedriver",asf-ci-trafficcontrol,2024-02-26T17:03:05Z,26,"['experimental/traffic-portal/package-lock.json', 'experimental/traffic-portal/package.json', 'traffic_portal/test/integration/package-lock.json', 'traffic_portal/test/integration/package.json']",7950,Update Chromedriver Versions,asf-ci-trafficcontrol,2024-02-24T00:22:00Z,"['Traffic Portal', 'tests', 'dependencies', 'Traffic Portal v2']","<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+""License""); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+""AS IS"" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+This PR updates chromedriver in:
+traffic_portal/test/integration: 122.0.3 -> 122.0.3
+experimental/traffic-portal: 122.0.3 -> 122.0.3
+
+
+## Which Traffic Control components are affected by this PR?
+* Traffic Portal
+* Traffic Portal v2
+
+
+## What is the best way to verify this PR?
+Verify that the affected e2e tests pass.
+
+## PR submission checklist
+- [ ] This PR has tests
+- [ ] This PR has documentation
+- [ ] This PR has a CHANGELOG.md entry
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY** (see [the Apache Software Foundation's security guidelines](https://apache.org/security) for details)
+",[]

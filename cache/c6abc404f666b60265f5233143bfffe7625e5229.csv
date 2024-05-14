@@ -1,0 +1,65 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,8711963674,completed,failure,c6abc404f666b60265f5233143bfffe7625e5229,"Update typescript to 4.9.5 in Traffic Portal integration tests (#7992)
+
+Update typescript to 4.9.5",Zach Hoffman,2024-04-15T22:21:59Z,16,"['traffic_portal/test/integration/package-lock.json', 'traffic_portal/test/integration/package.json']",7992,Update typescript to 4.9.5 in Traffic Portal integration tests,zrhoffman,2024-04-15T21:27:26Z,"['Traffic Portal', 'tests', 'dependencies']","<!--
+Thank you for contributing! Please be sure to read our contribution guidelines: https://github.com/apache/trafficcontrol/blob/master/CONTRIBUTING.md
+If this closes or relates to an existing issue, please reference it using one of the following:
+
+Closes: #ISSUE
+Related: #ISSUE
+
+If this PR fixes a security vulnerability, DO NOT submit! Instead, contact
+the Apache Traffic Control Security Team at security@trafficcontrol.apache.org and follow the
+guidelines at https://apache.org/security regarding vulnerability disclosure.
+-->
+
+This PR updates typescript to 4.9.5 in the TP integration tests to resolve this error:
+
+```javascript
+node_modules/axios/index.d.ts(7,18): error TS1005: ']' expected.
+node_modules/axios/index.d.ts(7,21): error TS1005: ';' expected.
+node_modules/axios/index.d.ts(7,35): error TS1005: '(' expected.
+node_modules/axios/index.d.ts(7,36): error TS1135: Argument expression expected.
+node_modules/axios/index.d.ts(7,50): error TS1005: ')' expected.
+node_modules/axios/index.d.ts(8,1): error TS1128: Declaration or statement expected.
+Error on line 146 of /home/runner/work/trafficcontrol/trafficcontrol/./.github/actions/tp-integration-tests/entrypoint.sh
+```
+<!-- **^ Add meaningful description above** --><hr/>
+
+## Which Traffic Control components are affected by this PR?
+<!-- Please delete all components from this list that are NOT affected by this PR.
+Feel free to add the name of a tool or script that is affected but not on the list.
+-->
+- Traffic Portal - integration tests
+
+## What is the best way to verify this PR?
+<!-- Please include here ALL the steps necessary to test your PR.
+If your PR has tests (and most should), provide the steps needed to run the tests.
+If not, please provide step-by-step instructions to test the PR manually and explain why your PR does not need tests. -->
+See if TP tests still produce that error
+
+## PR submission checklist
+- [x] This PR has tests <!-- If not, please delete this text and explain why this PR does not need tests. -->
+- [ ] This PR has documentation <!-- If not, please delete this text and explain why this PR does not need documentation. -->
+- [ ] This PR has a CHANGELOG.md entry <!-- A fix for a bug from an ATC release, an improvement, or a new feature should have a changelog entry. -->
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY** (see [the Apache Software Foundation's security guidelines](https://apache.org/security) for details)
+
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+""License""); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+""AS IS"" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+",[]

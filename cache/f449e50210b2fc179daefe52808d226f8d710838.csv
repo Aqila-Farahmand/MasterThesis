@@ -1,0 +1,90 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,8692766042,completed,failure,f449e50210b2fc179daefe52808d226f8d710838,"Store logs in /var/log (#7979)
+
+* Store Traffic Router logs in /var/log/traffic_router
+
+* Store Tomcat logs in /var/log/tomcat
+
+* Store Traffic Monitor logs in /var/log
+
+* Store Traffic Stats logs in /var/log/traffic_stats
+
+* chore: fix tomcat log path (#121)
+
+* Add path separator
+
+---------
+
+Co-authored-by: The Anh Nguyen <ntheanh201@gmail.com>",Zach Hoffman,2024-04-15T16:33:25Z,116,"['CHANGELOG.md', 'docs/source/admin/traffic_monitor.rst', 'docs/source/admin/traffic_router.rst', 'docs/source/development/debugging.rst', 'infrastructure/ansible/roles/traffic-monitor/defaults/main.yml', 'infrastructure/ansible/roles/traffic-router/defaults/main.yml', 'infrastructure/ansible/roles/traffic-router/files/traffic_router.logrotate', 'infrastructure/ansible/roles/traffic_stats/defaults/main.yml', 'infrastructure/cdn-in-a-box/traffic_ops_data/profiles/040-TRAFFIC_ROUTER.json', 'infrastructure/cdn-in-a-box/traffic_router/run.sh', 'infrastructure/cdn-in-a-box/traffic_stats/run.sh', 'traffic_monitor/build/traffic_monitor.logrotate', 'traffic_monitor/build/traffic_monitor.spec', 'traffic_monitor/conf/traffic_monitor.cfg', 'traffic_monitor/tests/_integration/tm/Dockerfile_run.sh', 'traffic_router/build/pom.xml', 'traffic_router/core/src/main/conf/log4j2.xml', 'traffic_router/core/src/main/conf/logging.properties', 'traffic_router/core/src/main/lib/logrotate/traffic_router', 'traffic_router/core/src/main/lib/systemd/system/traffic_router.service', 'traffic_router/core/src/test/conf/log4j2.xml', 'traffic_stats/build/traffic_stats.spec', 'traffic_stats/traffic_stats.init', 'traffic_stats/traffic_stats.logrotate', 'traffic_stats/traffic_stats_seelog.xml']",7979,Store logs in /var/log,zrhoffman,2024-04-02T22:16:15Z,"['bug', 'Traffic Router', 'Traffic Stats', 'Traffic Monitor', 'high impact', 'logging']","<!--
+Thank you for contributing! Please be sure to read our contribution guidelines: https://github.com/apache/trafficcontrol/blob/master/CONTRIBUTING.md
+If this closes or relates to an existing issue, please reference it using one of the following:
+
+Closes: #ISSUE
+Related: #ISSUE
+
+If this PR fixes a security vulnerability, DO NOT submit! Instead, contact
+the Apache Traffic Control Security Team at security@trafficcontrol.apache.org and follow the
+guidelines at https://apache.org/security regarding vulnerability disclosure.
+-->
+
+This PR
+
+- changes configuration to log Traffic Router to /var/log/traffic_router instead of /opt/traffic_router/var/log
+- changes configuration to log Traffic Monitor to /var/log/traffic_monitor instead of /opt/traffic_monitor/var/log
+- changes configuration to log Traffic Stats to /var/log/traffic_stats instead of /opt/traffic_stats/var/log
+
+ so that the logs are on a different partition than the application itself.
+
+<!-- **^ Add meaningful description above** --><hr/>
+
+## Which Traffic Control components are affected by this PR?
+<!-- Please delete all components from this list that are NOT affected by this PR.
+Feel free to add the name of a tool or script that is affected but not on the list.
+-->
+- Documentation
+- Traffic Monitor
+- Traffic Router
+- Traffic Stats
+- CDN in a Box
+- Automation - Ansible roles<!-- Please specify which (GitHub Actions, Docker images, Ansible Roles, etc.) -->
+- unknown
+
+## What is the best way to verify this PR?
+<!-- Please include here ALL the steps necessary to test your PR.
+If your PR has tests (and most should), provide the steps needed to run the tests.
+If not, please provide step-by-step instructions to test the PR manually and explain why your PR does not need tests. -->
+
+
+## If this is a bugfix, which Traffic Control versions contained the bug?
+<!-- Delete this section if the PR is not a bugfix, or if the bug is only in the master branch.
+Examples:
+- 5.1.2
+- 5.1.3 (RC1)
+ -->
+
+
+## PR submission checklist
+- [x] This PR has tests <!-- If not, please delete this text and explain why this PR does not need tests. -->
+- [x] This PR has documentation <!-- If not, please delete this text and explain why this PR does not need documentation. -->
+- [x] This PR has a CHANGELOG.md entry <!-- A fix for a bug from an ATC release, an improvement, or a new feature should have a changelog entry. -->
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY** (see [the Apache Software Foundation's security guidelines](https://apache.org/security) for details)
+
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+""License""); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+""AS IS"" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+","[{'comment_body': ""## [Codecov](https://app.codecov.io/gh/apache/trafficcontrol/pull/7979?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=apache) Report\nAll modified and coverable lines are covered by tests :white_check_mark:\n> Project coverage is 65.77%. Comparing base [(`26a2f6a`)](https://app.codecov.io/gh/apache/trafficcontrol/commit/26a2f6a5e8617a7d5740a20c6c417addb547554a?dropdown=coverage&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=apache) to head [(`900cf16`)](https://app.codecov.io/gh/apache/trafficcontrol/pull/7979?dropdown=coverage&src=pr&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=apache).\n> Report is 6 commits behind head on master.\n\n> :exclamation: Current head 900cf16 differs from pull request most recent head 72834a2. Consider uploading reports for the commit 72834a2 to get more accurate results\n\n\n<details><summary>Additional details and impacted files</summary>\n\n\n```diff\n@@            Coverage Diff            @@\n##             master    #7979   +/-   ##\n=========================================\n  Coverage     65.77%   65.77%           \n  Complexity       98       98           \n=========================================\n  Files           327      327           \n  Lines         13010    13010           \n  Branches        998      998           \n=========================================\n  Hits           8557     8557           \n  Misses         4091     4091           \n  Partials        362      362           \n```\n\n| [Flag](https://app.codecov.io/gh/apache/trafficcontrol/pull/7979/flags?src=pr&el=flags&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=apache) | Coverage Δ | |\n|---|---|---|\n| [traffic_router_unit](https://app.codecov.io/gh/apache/trafficcontrol/pull/7979/flags?src=pr&el=flag&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=apache) | `29.03% <ø> (ø)` | |\n\nFlags with carried forward coverage won't be shown. [Click here](https://docs.codecov.io/docs/carryforward-flags?utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=apache#carryforward-flags-in-the-pull-request-comment) to find out more.\n\n\n</details>\n\n[:umbrella: View full report in Codecov by Sentry](https://app.codecov.io/gh/apache/trafficcontrol/pull/7979?dropdown=coverage&src=pr&el=continue&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=apache).   \n:loudspeaker: Have feedback on the report? [Share it here](https://about.codecov.io/codecov-pr-comment-feedback/?utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=apache).\n""}, {'comment_body': ""+1 this idea, it would be better for the logs agent's permissions""}, {'comment_body': ""> After running Dev CIAB on the PR code, couldn't find the log files either at /opt/traffic_router/var or /var/log/.\r\n\r\nThe TR logs show up for me in `/var/log/traffic_router`.\r\n\r\n```shell\r\n[root@trafficrouter traffic_router]# ls -l\r\ntotal 76\r\n-rw-r--r-- 1 root root     0 Apr 10 18:52 access.log\r\n-rw-r--r-- 1 root root 73560 Apr 10 18:55 traffic_router.log\r\n[root@trafficrouter traffic_router]# tail -f access.log\r\n```\r\n\r\nThey also show up for `docker-compose logs -f trafficrouter`.\r\n\r\n> Also couldn't find the log file in TM container as well.\r\n\r\nThe TM logs are printed to stdout only with no files\r\n\r\nhttps://github.com/apache/trafficcontrol/blob/900cf169757b007e106ecdf112f9c520fbdd7635/infrastructure/cdn-in-a-box/traffic_monitor/traffic_monitor.cfg#L8-L13\r\n\r\nhttps://github.com/apache/trafficcontrol/blob/900cf169757b007e106ecdf112f9c520fbdd7635/infrastructure/cdn-in-a-box/variables.env#L76-L81""}]"

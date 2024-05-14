@@ -1,0 +1,85 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,8897433909,completed,failure,b23c661f155d36adb9a4a149e131cb7aa31ac319,"Move existing logs in `/opt/<component>/var/log` to `/var/log/<component>` pre-upgrade (#8001)
+
+* Do not create a symlink inside the target if it already exists
+
+* Idempotently replace existing symlink if it exists
+
+* Move existing logs to the new log location, if they exist",Zach Hoffman,2024-04-30T15:23:44Z,73,"['traffic_monitor/build/traffic_monitor.spec', 'traffic_router/build/pom.xml', 'traffic_router/core/src/main/scripts/preinstall.sh', 'traffic_router/tomcat-rpm/tomcat.spec', 'traffic_stats/build/traffic_stats.spec']",8001,Move existing logs in `/opt/<component>/var/log` to `/var/log/<component>` pre-upgrade,zrhoffman,2024-04-29T22:53:03Z,"['Traffic Router', 'Traffic Stats', 'Traffic Monitor', 'medium impact', 'logging']","<!--
+Thank you for contributing! Please be sure to read our contribution guidelines: https://github.com/apache/trafficcontrol/blob/master/CONTRIBUTING.md
+If this closes or relates to an existing issue, please reference it using one of the following:
+
+Closes: #ISSUE
+Related: #ISSUE
+
+If this PR fixes a security vulnerability, DO NOT submit! Instead, contact
+the Apache Traffic Control Security Team at security@trafficcontrol.apache.org and follow the
+guidelines at https://apache.org/security regarding vulnerability disclosure.
+-->
+
+The symlinks created in #7999 work, but only for fresh installs, not upgrades. #8001 fixes that by
+- Moving existing logs in `/opt/<component>/var/log` to `/var/log/<component>`
+- Not creating a symlink inside the symlink target if the symlink target already exists and is a directory
+<!-- **^ Add meaningful description above** --><hr/>
+
+## Which Traffic Control components are affected by this PR?
+<!-- Please delete all components from this list that are NOT affected by this PR.
+Feel free to add the name of a tool or script that is affected but not on the list.
+-->
+- Traffic Monitor
+- Traffic Router
+- Traffic Stats
+
+## What is the best way to verify this PR?
+<!-- Please include here ALL the steps necessary to test your PR.
+If your PR has tests (and most should), provide the steps needed to run the tests.
+If not, please provide step-by-step instructions to test the PR manually and explain why your PR does not need tests. -->
+1. Build the RPMs
+   ```shell
+   ./pkg -v traffic_monitor_build traffic_stats_build traffic_router_build
+   ```
+
+2. Verify that files that exist in the old log directories pre-install are moved to the new log directories
+   ```shell
+   <<'SHELL_COMMANDS' docker run --rm -i -v $(pwd)/dist:/dist rockylinux:8 bash
+   set -o errexit
+   mkdir -p /opt/traffic_{monitor,stats,router}/var/log
+   touch /opt/traffic_{monitor,stats,router}/var/log/my-logfile.log
+   rpm -Uvh --nodeps dist/traffic_monitor-8.1.0-12410.cff72c19.el8.x86_64.rpm dist/traffic_router-8.1.0-12410.cff72c19.el8.noarch.rpm dist/traffic_stats-8.1.0-12410.cff72c19.el8.x86_64.rpm
+   ls -1 /var/log/traffic_{monitor,stats,router}/my-logfile.log
+   SHELL_COMMANDS
+   ```
+
+   Expected output:
+
+   ```shell
+   /var/log/traffic_monitor/my-logfile.log
+   /var/log/traffic_router/my-logfile.log
+   /var/log/traffic_stats/my-logfile.log
+   ```
+
+
+## PR submission checklist
+- [ ] This PR has tests <!-- If not, please delete this text and explain why this PR does not need tests. -->
+- [ ] This PR has documentation <!-- If not, please delete this text and explain why this PR does not need documentation. -->
+- [ ] This PR has a CHANGELOG.md entry <!-- A fix for a bug from an ATC release, an improvement, or a new feature should have a changelog entry. -->
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY** (see [the Apache Software Foundation's security guidelines](https://apache.org/security) for details)
+
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+""License""); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+""AS IS"" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->",[]

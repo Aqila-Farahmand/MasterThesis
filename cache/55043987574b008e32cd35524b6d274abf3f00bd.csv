@@ -1,0 +1,22 @@
+workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
+.github/workflows/ansible.molecule.fo.yml,7587073817,completed,failure,55043987574b008e32cd35524b6d274abf3f00bd,"Fix TPv2 unit tests downloading a blank file (#7916)
+
+Fix tests downloading a blank file",ocket8888,2024-01-19T17:22:05Z,23,['experimental/traffic-portal/src/app/core/misc/isogeneration-form/isogeneration-form.component.spec.ts'],7916,Fix TPv2 unit tests downloading a blank file,ocket8888,2024-01-17T00:59:05Z,"['regression bug', 'tests', 'experimental', 'Traffic Portal v2']","Fixes #7515 
+
+This PR prevents the ISO generation form tests from downloading a blank file.
+ <hr/>
+
+## Which Traffic Control components are affected by this PR?
+- Traffic Portal (experimental v2)
+
+## What is the best way to verify this PR?
+Make sure all the tests still pass, and ensure that when you run them locally they don't download a blank file.
+
+## If this is a bugfix, which Traffic Control versions contained the bug?
+N/A; TPv2 is an unreleased, experimental product.
+
+## PR submission checklist
+- [x] This PR fixes tests
+- [x] This PR doesn't need documentation
+- [x] This PR doesn't need a CHANGELOG.md entry
+- [x] This PR **DOES NOT FIX A SERIOUS SECURITY VULNERABILITY**",[]
