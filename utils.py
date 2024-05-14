@@ -45,7 +45,7 @@ def fetch_workflow_runs(workflow_id: list[str]) -> list:
     return runs
 
 
-def fetch_commit_details(commit_sha) -> tuple[str, str, str, list[str], int]:
+def fetch_commit_details(commit_sha) -> tuple[str, str, str, list[str], int, int]:
     url = f"https://api.github.com/repos/{owner}/{repo}/commits/{commit_sha}"
     response = make_request_with_retry(url)
     if response and response.status_code == 200:
@@ -54,12 +54,18 @@ def fetch_commit_details(commit_sha) -> tuple[str, str, str, list[str], int]:
         commit_author = commit_data.get("commit", {}).get("author", {}).get("name", "Unknown")
         commit_date = commit_data.get("commit", {}).get("author", {}).get("date", "Unknown")
         files_changed = [file["filename"] for file in commit_data.get("files", [])]
-        total_size = sum(file["additions"] + file["deletions"] for file in commit_data.get("files", []))
-        return commit_message, commit_author, commit_date, files_changed, total_size
+
+        lines_added = 0
+        lines_deleted = 0
+        for file in commit_data.get("files", []):
+            lines_added += file["additions"]
+            lines_deleted += file["deletions"]
+
+        return commit_message, commit_author, commit_date, files_changed, lines_added, lines_deleted
     else:
         print(
-            f"Failed to fetch details for commit {commit_sha}. Status code: {response.status_code if response else 'Unknown'}")
-        return None, "Unknown", "Unknown", [], 0
+            f"Failed to fetch details for commit {commit_sha}. Status code: {response.status_code if response else "Unknown"}")
+        return None, "Unknown", "Unknown", [], 0, 0
 
 
 def fetch_pull_request_details(commit_sha: str) -> tuple[str, str, str, str, str, str, list[str]]:
@@ -103,16 +109,7 @@ def fetch_pull_request_conversation(conversation_url):
             # Check if the comment is made by a user (not a bot)
             if comment.get("user", {}).get("type") == "User":
                 comment_data = {
-                    "comment_url": comment.get("html_url", ""),
-                    "comment_id": comment.get("id", ""),
-                    "comment_created_at": comment.get("created_at", ""),
-                    "comment_updated_at": comment.get("updated_at", ""),
-                    "comment_author_association": comment.get("author_association", ""),
-                    "comment_body": comment.get("body", ""),
-                    "comment_user_login": comment.get("user", {}).get("login", ""),
-                    "comment_user_id": comment.get("user", {}).get("id", ""),
-                    "comment_reactions_count": comment.get("reactions", {}).get("total_count", 0),
-                    "comment_author": comment.get("user", {}).get("login", "")
+                    "comment_body": comment.get("body", "")
                 }
                 conversation_data.append(comment_data)
         return conversation_data
