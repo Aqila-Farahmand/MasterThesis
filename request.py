@@ -5,7 +5,8 @@ from requests import Response
 
 
 # export GITHUB_TOKEN=<your_github_token>
-github_token = os.environ.get("GITHUB_TOKEN", "")
+github_token = os.environ.get("GITHUB_TOKEN")
+
 limit_remaining = "X-RateLimit-Remaining"
 limit_reset = "X-RateLimit-Reset"
 
