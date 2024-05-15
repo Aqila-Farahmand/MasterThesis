@@ -46,6 +46,11 @@ def fetch_workflow_runs(workflow_id: list[str]) -> list:
 
 
 def fetch_commit_details(commit_sha) -> tuple[str, str, str, list[str], int, int]:
+
+    files_changed = []
+    lines_added = 0
+    lines_deleted = 0
+
     url = f"https://api.github.com/repos/{owner}/{repo}/commits/{commit_sha}"
     response = make_request_with_retry(url)
     if response and response.status_code == 200:
@@ -53,11 +58,9 @@ def fetch_commit_details(commit_sha) -> tuple[str, str, str, list[str], int, int
         commit_message = commit_data.get("commit", {}).get("message", "No commit message")
         commit_author = commit_data.get("commit", {}).get("author", {}).get("name", "Unknown")
         commit_date = commit_data.get("commit", {}).get("author", {}).get("date", "Unknown")
-        files_changed = [file["filename"] for file in commit_data.get("files", [])]
 
-        lines_added = 0
-        lines_deleted = 0
         for file in commit_data.get("files", []):
+            files_changed.append(file["filename"])
             lines_added += file["additions"]
             lines_deleted += file["deletions"]
 
