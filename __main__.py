@@ -23,7 +23,7 @@ if __name__ == "__main__":
                 print(f"Skipping {file_name} as it has already been processed.")
                 continue
 
-            commit_message, commit_author, commit_date, files_changed, total_size = fetch_commit_details(commit_sha)
+            commit_message, commit_author, commit_date, files_changed, lines_added, lines_deleted = fetch_commit_details(commit_sha)
             pr_id, pr_title, pr_author, pr_date, pr_body, pr_url, pr_labels = fetch_pull_request_details(commit_sha)
             pull_request_conversation = fetch_pull_request_conversation(pr_url) if pr_url else []
             workflow_data = {
@@ -35,7 +35,8 @@ if __name__ == "__main__":
                 "commit_message": commit_message,
                 "commit_author": commit_author,
                 "commit_date": commit_date,
-                "commit_size": total_size,
+                "lines_added": lines_added,
+                "lines_deleted": lines_deleted,
                 "files_changed": files_changed,
                 "pull_request_id": pr_id,
                 "pull_request_title": pr_title,

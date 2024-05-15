@@ -1,2 +1,0 @@
-workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
-.github/workflows/ansible.molecule.fo.yml,8007579937,completed,failure,4b25f4962ac32b398121b8fd3ccf4bcf97064e23,Use RFC 3339 for request to POST /cdns/dnsseckeys/generate,Zach Hoffman,2024-02-13T08:43:36Z,2,['infrastructure/cdn-in-a-box/traffic_ops/trafficops-init.sh'],None,None,None,None,None,None,[]

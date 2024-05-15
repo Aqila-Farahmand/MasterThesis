@@ -1,2 +1,0 @@
-workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
-.github/workflows/ansible.molecule.fo.yml,6722894316,completed,failure,5fea7b9a24dbe6f2972ed1ce53aadecedea6b5d4,Try manually installing python 3.8,ocket8888,2023-11-01T17:18:30Z,1,['infrastructure/cdn-in-a-box/traffic_ops/Dockerfile'],None,None,None,None,None,None,[]

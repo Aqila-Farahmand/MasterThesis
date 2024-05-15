@@ -1,6 +1,0 @@
-workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
-.github/workflows/ansible.molecule.fo.yml,8691811715,completed,failure,22530c06051fdcb57ae952cfc3a70d111f4f36ac,"chore: change ATS traffic.out folder to /var/log/trafficserver (#122)
-
-* chore: change ATS traffic.out folder to /var/log/trafficserver
-
-* chore: add license",The Anh Nguyen,2024-04-15T15:24:36Z,30,"['traffic_server/_tsb/Dockerfile', 'traffic_server/_tsb/run.sh', 'traffic_server/_tsb/trafficserver.env', 'traffic_server/_tsb/trafficserver.spec']",None,None,None,None,None,None,[]

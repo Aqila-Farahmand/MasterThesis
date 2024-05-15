@@ -1,2 +1,0 @@
-workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
-.github/workflows/ansible.molecule.fo.yml,6252169075,completed,failure,a6b29549ce1906c44f6e5dce9d92830f1bf63ecb,Remove go.mod to make v8.0.0-rc0 importable,Rima Shah,2023-09-20T17:25:23Z,118,['go.mod'],None,None,None,None,None,None,[]

@@ -1,4 +1,0 @@
-workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
-.github/workflows/ansible.molecule.fo.yml,7745617706,completed,failure,21907895d39c429dfa9795d1f36717f206a4cf4b,"Reverting partial change from PR 7891. (#7929)
-
-(cherry picked from commit dc9c3751f5ee379a67c1f72aa51ce279f0479833)",Rima Shah,2024-01-30T19:59:41Z,10,"['CHANGELOG.md', 'traffic_ops/traffic_ops_golang/routing/middleware/wrappers.go']",None,None,None,None,None,None,[]

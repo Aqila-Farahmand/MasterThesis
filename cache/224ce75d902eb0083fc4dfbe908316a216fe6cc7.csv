@@ -1,2 +1,0 @@
-workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
-.github/workflows/ansible.molecule.fo.yml,6645109933,completed,failure,224ce75d902eb0083fc4dfbe908316a216fe6cc7,Add license,AbdelrahmanElawady,2023-10-25T19:16:31Z,38,"['lib/varnishcfg/custom_vcl.go', 'lib/varnishcfg/custom_vcl_test.go']",None,None,None,None,None,None,[]

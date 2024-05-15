@@ -1,2 +1,0 @@
-workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
-.github/workflows/ansible.molecule.fo.yml,8121842665,completed,failure,86d77ed7d3e823a854f304af47de1054473eb0a3,Fix rebase,Steve Hamrick,2024-03-02T09:22:47Z,30,['experimental/traffic-portal/src/app/shared/generic-table/generic-table.component.ts'],None,None,None,None,None,None,[]

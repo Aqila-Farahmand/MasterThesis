@@ -1,8 +1,0 @@
-workflow_name,run_id,run_status,run_conclusion,commit_id,commit_message,commit_author,commit_date,commit_size,files_changed,pull_request_id,pull_request_title,pull_request_author,pull_request_created_at,Pull_request_label,pull_request_body,pull_request_conversation
-.github/workflows/ansible.molecule.fo.yml,6304633718,completed,failure,3a5c72f0665c449c1e679ab97271ff0272b8e5cf,"Docs builder fixes (#7815)
-
-* Add missing command separator
-
-* Use Python 3.8 to build the documentation
-
-(cherry picked from commit fec988e4492d2dbc3c53e51100a0c38e55df037a)",Zach Hoffman,2023-09-25T15:09:32Z,6,['infrastructure/docker/build/Dockerfile-docs'],None,None,None,None,None,None,[]
