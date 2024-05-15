@@ -33,6 +33,9 @@ def make_request_with_retry(url: str, max_retries: int = 3, wait_seconds: int = 
                 wait_for = max(reset_time - current_time, 1)  # Ensure at least a minimal wait time
                 print(f"Rate limit exceeded. Waiting for {wait_for} seconds before retrying...")
                 time.sleep(wait_for)
+            elif code == 422:
+                print("Unprocessable Entity error encountered. Skipping the request.")
+                return None
             else:
                 # Other errors
                 response.raise_for_status()
