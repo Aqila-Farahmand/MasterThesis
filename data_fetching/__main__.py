@@ -7,7 +7,6 @@ from utils import (
     fetch_pull_request_conversation
 )
 
-
 if __name__ == "__main__":
     workflows = fetch_workflows()
     for workflow in workflows:

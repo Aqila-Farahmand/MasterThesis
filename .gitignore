@@ -8,6 +8,16 @@ __pycache__/
 # C extensions
 *.so
 
+#ignore cache within data_fetching package
+data_fetching/cache/*.csv
+
+#ignore data directories
+data/raw
+data/processed/
+
+#NLP model
+td_model/
+
 # Distribution / packaging
 .Python
 build/
