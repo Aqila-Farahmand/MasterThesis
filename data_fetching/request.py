@@ -3,7 +3,6 @@ import time
 import requests
 from requests import Response
 
-
 # export GITHUB_TOKEN=<your_github_token>
 github_token = os.environ.get("GITHUB_TOKEN")
 
@@ -50,10 +49,6 @@ def make_request_with_retry(url: str, max_retries: int = 3, wait_seconds: int = 
                 raise Exception("Max retries exceeded with GitHub API.")
 
 
-def get_workflows():
-    pass
-
-
 def get_workflow_runs(url: str):
     all_runs = []
     next_page = url
@@ -71,9 +66,3 @@ def get_workflow_runs(url: str):
     return all_runs
 
 
-def get_commit():
-    pass
-
-
-def get_pull_request():
-    pass

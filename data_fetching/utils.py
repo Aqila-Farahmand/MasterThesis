@@ -1,9 +1,8 @@
 import re
 from data_fetching.request import make_request_with_retry, get_workflow_runs
 
-
-owner = "apache"
-repo = "trafficcontrol"
+owner = "metabase"
+repo = "metabase"
 
 
 def sanitize_filename(filename: str) -> str:
@@ -46,7 +45,6 @@ def fetch_workflow_runs(workflow_id: list[str]) -> list:
 
 
 def fetch_commit_details(commit_sha) -> tuple[str, str, str, list[str], int, int]:
-
     files_changed = []
     lines_added = 0
     lines_deleted = 0
@@ -71,14 +69,32 @@ def fetch_commit_details(commit_sha) -> tuple[str, str, str, list[str], int, int
         return None, "Unknown", "Unknown", [], 0, 0
 
 
-def fetch_pull_request_details(commit_sha: str) -> tuple[str, str, str, str, str, str, list[str]]:
-    url = f"https://api.github.com/repos/{owner}/{repo}/commits/{commit_sha}/pulls"
+def fetch_issue_details(issue_number: int) -> tuple[int, str, str, str, str, list[str]]:
+    url = f"https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}"
+    response = make_request_with_retry(url)
+    if response and response.status_code == 200:
+        issue_data = response.json()
+        issue_number = issue_data.get("number")
+        issue_title = issue_data.get("title")
+        issue_author = issue_data.get("author")
+        issue_date = issue_data.get("date")
+        issue_body = issue_data.get("body")
+        issue_labels = issue_data.get("labels")
+
+        return issue_number, issue_title, issue_author, issue_date, issue_body, issue_labels
+    else:
+        print(
+            f"Failed to fetch details for issue {issue_number}. Status Code: {response.status_code if response else "Unknown"}")
+        return None, "Unknown", "Unknown", "Unknown", "Unknown", []
+
+
+def fetch_pull_request_details(pr_number: str) -> tuple[str, str, str, str, str, list[str]]:
+    url = f"https://api.github.com/repos/{owner}/{repo}/pulls?state=all/{pr_number}"
     response = make_request_with_retry(url)
     if response and response.status_code == 200:
         pulls = response.json()
         if pulls:
             pull_request = pulls[0]
-            pull_request_id = pull_request["number"]
             pull_request_title = pull_request["title"]
             pull_request_author = pull_request["user"]["login"]
             pull_request_created_at = pull_request["created_at"]
@@ -92,15 +108,15 @@ def fetch_pull_request_details(commit_sha: str) -> tuple[str, str, str, str, str
                 pull_request_body = pull_request_details["body"]
             else:
                 print(
-                    f"Failed to fetch pull request details for commit {commit_sha}. Status code: {response.status_code if response else 'Unknown'}")
-                return 7 * [None]
-            return pull_request_id, pull_request_title, pull_request_author, pull_request_created_at, pull_request_body, pull_request_conversation_url, pull_request_labels
+                    f"Failed to fetch pull request details for commit {pr_number}. Status code: {response.status_code if response else 'Unknown'}")
+                return 6 * [None]
+            return pull_request_title, pull_request_author, pull_request_created_at, pull_request_body, pull_request_conversation_url, pull_request_labels
         else:
-            return 7 * [None]
+            return 6 * [None]
     else:
         print(
-            f"Failed to fetch pull request details for commit {commit_sha}. Status code: {response.status_code if response else 'Unknown'}")
-        return 7 * [None]
+            f"Failed to fetch pull request details for commit {pr_number}. Status code: {response.status_code if response else 'Unknown'}")
+        return 6 * [None]
 
 
 def fetch_pull_request_conversation(conversation_url):
