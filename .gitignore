@@ -8,8 +8,9 @@ __pycache__/
 # C extensions
 *.so
 
-#ignore cache within data_fetching package
-cache/*.csv
+*.csv
+
+
 
 #ignore data directories
 
