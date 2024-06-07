@@ -9,11 +9,10 @@ __pycache__/
 *.so
 
 #ignore cache within data_fetching package
-data_fetching/cache/*.csv
+cache/*.csv
 
 #ignore data directories
-data/raw
-data/processed/
+
 
 #NLP model
 td_model/
