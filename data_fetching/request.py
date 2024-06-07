@@ -64,5 +64,3 @@ def get_workflow_runs(url: str):
             next_page = response.links["next"]["url"]
 
     return all_runs
-
-
