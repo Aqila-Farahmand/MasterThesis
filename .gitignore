@@ -16,7 +16,7 @@ __pycache__/
 
 
 #NLP model
-td_model/
+
 
 # Distribution / packaging
 .Python
