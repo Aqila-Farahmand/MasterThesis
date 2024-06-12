@@ -1,8 +1,8 @@
 import re
 from data_fetching.request import make_request_with_retry, get_workflow_runs
 
-owner = "apache"
-repo = "tomcat"
+owner = "telefonicaid"
+repo = "fiware-orion"
 
 
 def sanitize_filename(filename: str) -> str:
@@ -96,37 +96,35 @@ def fetch_issue_details(issue_url: str) -> tuple[str, int, str, str, str, str, l
 # Question: what is the difference between pr I get using the pulls url and pull number form the data in the run and the pr I get using the commits sha of a commit that has triggered that run?
 
 
-def fetch_pull_request_details(pr_number: int) -> tuple[str, str, str, list['str'], str, str]:
+def fetch_pull_request_details(pr_number: int) -> tuple[int, str, str, str, str, list['str'], str, str]:
     url = f"https://api.github.com/repos/{owner}/{repo}/pulls?state=all/{pr_number}"
     response = make_request_with_retry(url)
     if response and response.status_code == 200:
         pull_requests = response.json()
         for pull_request in pull_requests:
+            pr_number = pull_request["number"]
+            pr_url = url
             pr_title = pull_request["title"]
             pr_author = pull_request["user"]["login"]
             pr_created_at = pull_request["created_at"]
-            # base_repository = pull_request["baseRepository"]
-            # is_closed = pull_request["closed"]  # bool
-           # no_of_files_changes = pull_request["changedFiles"]  # int value, the no of files changed
-            # merge_state_status = pull_request["mergeStateStatus"]  # str
             pr_labels = [label["name"] for label in pull_request["labels"]]  # list
             pr_body = pull_request.get("body", str)
             pr_comments_url = pull_request["comments_url"]
-            return pr_title, pr_author, pr_created_at, pr_labels, pr_body, pr_comments_url
+            return pr_number, pr_url, pr_title, pr_author, pr_created_at, pr_labels, pr_body, pr_comments_url
     else:
         print(f"Failed to fetch pull request details for commit {pr_number}. " f"Status code: {response.status_code if response else 'Unknown'}")
         return 8 * [None]
 
 
 def get_pull_number(pulls_url: str) -> int:
-    parts = pulls_url.split('/')
-    # The pull request number is the last part of the URL
-    pull_number = parts[-1]
-
-    if pull_number.isdigit():
-        return int(pull_number)
-    else:
-        raise ValueError(f"No pull request number is found in the URL: {pulls_url}")
+    for url in pulls_url:
+        parts = url.split('/')
+        # The pull request number is the last part of the URL
+        pull_number = parts[-1]
+        if pull_number.isdigit():
+            return int(pull_number)
+        else:
+            raise ValueError(f"No pull request number is found in the URL: {url}")
 
 
 def fetch_pull_request_comments(comments_url: str) -> list[dict]:
