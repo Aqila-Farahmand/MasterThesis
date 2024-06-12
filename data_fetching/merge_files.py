@@ -21,7 +21,7 @@ for filename in os.listdir(directory):
                 merged_data.append(row)
 
 # Write merged data to a new CSV file
-output_file = 'merged_data.csv'
+output_file = 'telefonicaid_data.csv'
 with open(output_file, 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile)
     # Write header if needed
