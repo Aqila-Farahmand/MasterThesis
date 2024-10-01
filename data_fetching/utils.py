@@ -1,8 +1,8 @@
 import re
 from data_fetching.request import make_request_with_retry, get_workflow_runs
 
-owner = "telefonicaid"
-repo = "fiware-orion"
+owner = "apache"
+repo = "trafficcontrol"
 
 
 def sanitize_filename(filename: str) -> str:
@@ -22,6 +22,17 @@ def sanitize_filename(filename: str) -> str:
     filename = filename[:255]
 
     return filename
+
+
+def flatten(data):
+    if not isinstance(data, list):
+        return [data]
+    if all(isinstance(item, dict) for item in data):
+        return data
+    flat_list = []
+    for item in data:
+        flat_list.extend(flatten(item))
+    return flat_list
 
 
 def fetch_workflows() -> list:
@@ -63,8 +74,6 @@ def fetch_commit_details(commit_sha) -> tuple[str, str, str, list[str], int, int
             f"Failed to fetch details for commit {commit_sha}. Status code: {response.status_code if response else "Unknown"}")
         return None, "Unknown", "Unknown", [], 0, 0
 
-# TO DO: check how to get issue id if event is issue?
-
 
 def fetch_issue_details(issue_url: str) -> tuple[str, int, str, str, str, str, list[str]]:
     response = make_request_with_retry(issue_url)
@@ -84,36 +93,33 @@ def fetch_issue_details(issue_url: str) -> tuple[str, int, str, str, str, str, l
             f"Failed to fetch details for the following issue {issue_url}. Status Code: {response.status_code if response else "Unknown"}")
         return None, "Unknown", "Unknown", "Unknown", "Unknown", []
 
-# TO DO: if event is push get pull requests for that commit_sha
-# How to implement? do I have to write a different method to get pull requests, using commit_sha?
-# TO DO, check the PR url pattern if it's set correctly since the url is pulls/{pr_number} or {pr_id}
 
-# The fact that pr_id is a unique str the same as commit_sha, so I may opt for pr_id
-# However I can not creat url with pr_id
-# Solution: To get all the pr for a specific commit, I need commit_sha AND
-# To get pull requests from the run filed directly I can get it using pr number
-# So, I creat a separate logic in the fetch_commit to check for pulls and then once got the lists of pr, get pr number and call fetch_pr method.
-# Question: what is the difference between pr I get using the pulls url and pull number form the data in the run and the pr I get using the commits sha of a commit that has triggered that run?
-
-
-def fetch_pull_request_details(pr_number: int) -> tuple[int, str, str, str, str, list['str'], str, str]:
-    url = f"https://api.github.com/repos/{owner}/{repo}/pulls?state=all/{pr_number}"
+def fetch_pull_request_details(commit_sha: str) -> tuple[int, str, str, str, str, str, list['str'], str, str]:
+    url = f"https://api.github.com/repos/{owner}/{repo}/commits/{commit_sha}/pulls"
     response = make_request_with_retry(url)
     if response and response.status_code == 200:
-        pull_requests = response.json()
-        for pull_request in pull_requests:
-            pr_number = pull_request["number"]
-            pr_url = url
-            pr_title = pull_request["title"]
-            pr_author = pull_request["user"]["login"]
-            pr_created_at = pull_request["created_at"]
-            pr_labels = [label["name"] for label in pull_request["labels"]]  # list
-            pr_body = pull_request.get("body", str)
-            pr_comments_url = pull_request["comments_url"]
-            return pr_number, pr_url, pr_title, pr_author, pr_created_at, pr_labels, pr_body, pr_comments_url
+        pulls = response.json()
+        if pulls:
+            for pull in pulls:
+                pr_number = pull["number"]
+                pr_url = pull["url"]
+                pr_state = pull["state"]
+                pr_title = pull["title"]
+                pr_author = pull["user"]["login"]
+                pr_created_at = pull["created_at"]
+                pr_labels = [label["name"] for label in pull["labels"]]  # list
+                pr_body = pull.get("body", str)
+                pr_comments_url = pull["comments_url"]
+                return pr_number, pr_url, pr_state, pr_title, pr_author, pr_created_at, pr_labels, pr_body, pr_comments_url
+            else:
+                return 9 * [None]
+        else:
+            print(f"No pulls found for commit {commit_sha}")
+            return 9 * [None]
     else:
-        print(f"Failed to fetch pull request details for commit {pr_number}. " f"Status code: {response.status_code if response else 'Unknown'}")
-        return 8 * [None]
+        print(
+            f"Failed to fetch pull request details for commit {commit_sha}. Status code: {response.status_code if response else 'Unknown'}")
+        return 9 * [None]
 
 
 def get_pull_number(pulls_url: str) -> int:
