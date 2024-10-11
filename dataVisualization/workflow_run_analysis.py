@@ -37,5 +37,5 @@ sns.scatterplot(x='time', y='run_number', hue='class', style='workflow_name', da
 plt.title('Time Distribution of Run Failures by Class (TD or Not_TD) and Workflow Name')
 plt.xlabel('Time')
 plt.ylabel('Run Number')
-plt.savefig('time_distribution.pdf')
+plt.savefig('tdDistribution.pdf')
 plt.show()
