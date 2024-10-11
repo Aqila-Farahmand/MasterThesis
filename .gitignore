@@ -10,7 +10,7 @@ __pycache__/
 
 #ignore data directories
 *.csv
-dataset
+data
 
 #NLP model
 
