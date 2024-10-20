@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data from the CSV file
-data = pd.read_csv('dataset/traffic_control_final.csv')
+data = pd.read_csv('data/traffic_control_final.csv')
 
 # Filter data for workflow run triggered by pull request
 commit = data[data['event'] == 'push'].copy()
@@ -28,7 +28,7 @@ commit.to_csv(prepared_data_path, index=False)
 plt.figure(figsize=(8, 8))
 plt.pie(commit_label, labels=commit_label.index, autopct='%1.1f%%', startangle=140)
 plt.title('Distribution of TD within Workflow run that are triggered by commits')
-plt.savefig('pie_chart.png')
+plt.savefig('images/pie_chart.png')
 plt.show()
 
 
@@ -38,5 +38,5 @@ sns.scatterplot(x='time', y='run_number', hue='class', style='workflow_name', da
 plt.title('TD distribution within workflows over time')
 plt.xlabel('Time')
 plt.ylabel('Workflow_run Number')
-plt.savefig('td_distribution_overTime.png')
+plt.savefig('images/td_distribution_overTime.png')
 plt.show()
