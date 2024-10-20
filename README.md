@@ -1,4 +1,4 @@
-# Technical Debt Identification in Continuous Integration Workflows Using Data Mining and NLP Techniques
+# Identifying Files and Workflows Contributing to Technical Debt in GitHub Repositories Using Data Mining and Natural Language Processing Techniques
 
 ## Features
 
