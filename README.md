@@ -2,7 +2,7 @@
 
 ## Features
 
-* **Data Fetching from GitHub Actions Workflows**  
+* **Fetching data from GitHub Actions Workflows**  
   Efficiently fetch data from GitHub Actions workflows for further analysis.
 
 * **Data Cleaning**  
